@@ -19,8 +19,15 @@ The basic idea is simple, given a grammar, we map each kind of expression to a c
 see [wikipedia article](https://en.wikipedia.org/wiki/Recursive_descent_parser)
 
 
-## Myers string diff
+## Diff
 
-Given two strings, how do we calculae the diff between them? That is, how it workds GNU diff and diff3 programs?
+Given two strings, how do we calculae the difference between them. That is, the series of edits required to transform one string into another (i.e. outputs of the diff algorithm)? This problem is the dual of finding a longest common subsequence of two strings.
+
+The implementation in this case is less efficient than the one from Myers, but it is far more easy to understand. 
 
 see [Eugene W. Myers, AnO(ND) difference algorithm and its variations, 1986](https://link.springer.com/article/10.1007/BF01840446)
+
+
+
+## Suffix Tree
+
