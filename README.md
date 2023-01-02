@@ -23,7 +23,7 @@ see [wikipedia article](https://en.wikipedia.org/wiki/Recursive_descent_parser)
 
 Given two strings, how do we calculae the difference between them. That is, the series of edits required to transform one string into another (i.e. outputs of the diff algorithm)? This problem is the dual of finding a longest common subsequence of two strings.
 
-The implementation in this case is less efficient than the one from Myers, but it is far more easy to understand. 
+The implementation in this case is less efficient than the one from Myers, but it is far more easy to understand as it does not require changing the coordinates of the indexes. 
 
 see [Eugene W. Myers, AnO(ND) difference algorithm and its variations, 1986](https://link.springer.com/article/10.1007/BF01840446)
 

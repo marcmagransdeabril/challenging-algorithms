@@ -36,6 +36,21 @@ def diff(a, b):
 
 class Testing(unittest.TestCase):
     def test_myers(self):
+        a = []
+        b = []
+
+        self.assertEqual(diff(a,b), [])
+        
+        a = []
+        b = ["A","B"]
+
+        self.assertEqual(diff(a,b), ["+ A","+ B"])
+
+        a = ["A","B"]
+        b = []
+
+        self.assertEqual(diff(a,b), ["- A","- B"])
+        
         a = ["A","B"]
         b = ["A","B","B"]
 
