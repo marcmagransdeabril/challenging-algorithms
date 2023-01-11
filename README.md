@@ -12,13 +12,6 @@ The input of the problem is a Directed Graph and the problem has solution if the
 
 see [wikipedia article](https://en.wikipedia.org/wiki/Topological_sorting).
 
-## Recursive Descent Parsing
-
-The basic idea is simple, given a grammar, we map each kind of expression to a c
-
-see [wikipedia article](https://en.wikipedia.org/wiki/Recursive_descent_parser)
-
-
 ## Diff
 
 Given two strings, how do we calculae the difference between them. That is, the series of edits required to transform one string into another (i.e. outputs of the diff algorithm)? This problem is the dual of finding a longest common subsequence of two strings.
@@ -28,6 +21,40 @@ The implementation in this case is less efficient than the one from Myers, but i
 see [Eugene W. Myers, AnO(ND) difference algorithm and its variations, 1986](https://link.springer.com/article/10.1007/BF01840446)
 
 
+## Bloom filter
 
-## Suffix Tree
+A Bloom Filter is an space efficient probabilitstic set that scales well up to billions of entries. This data structure is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not. That is, a query returns either "possibly in set" or "definitely not in set".
+
+The false positive rate is determined by the size $n$ of the filter, the number of elements $m$ already added, and the number of hash functions $k$ according to:
+
+$$
+( 1 - exp^(-k n / m))^k
+$$
+
+see [wikipedia article](https://en.wikipedia.org/wiki/Bloom_filter)
+
+## Consistent Hashing
+
+Consistent hashing is a special kind of hashing technique such that when a hash table is resized then just a small subset of the kes has to be remapped. 
+
+Consistent hashing is a fundamental building block of modern distributed system to to automate the data partitioning and load balancing in services like Google Maglev, Dynamo DB, Cassandra, Riak, Akkami, etc.
+
+The basic techinque has a cost of inserting and searching the host for a given blob of O(log N). Where N is the number of servers. The cost of inserting or deleting a server if O(log N) + O(M/N). Where M is the total number of Blobs partition between N servers. This basic technique can be further extended by adding a number of aliases per server in order spread the load more evently.
+
+see [wikipedia article](https://en.wikipedia.org/wiki/Consistent_hashing) algorithms. 
+
+
+## Other Data Structures
+
+In the future, I could implement:
+
+* Suffix Tree. Great documentation at https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
+
+* Different kinds of parsers
+
+## Piece table
+
+## Splay tree
+
+x
 
