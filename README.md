@@ -49,9 +49,12 @@ A skip list is a probabilistic data structure that allows expected retrieval, in
 
 see the original paper from [Pugh, Skip lists: A probabilistic alternative to balanced trees, 1990](ftp://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf) fpr the best explanation of the data structure and its implementation.
 
-## Piece table
-
 ## Splay tree
+
+A splay tree is a binary search tree with the additional property that recently accessed elements are quick to access again. Like binary search trees and skip lists it has $O(log(n))$ insertion, deletion, and search. The disdvantage of spaly trees not faced with balanced trees and skip lists is that the tree height can grow lineraly in some cases although a randomized implementation can be used to avoid this situation in most situations.
+
+
+
 
 
 
