@@ -18,7 +18,7 @@ Given two strings, how do we calculae the difference between them. That is, the 
 
 The implementation in this case is less efficient than the one from Myers, but it is far more easy to understand as it does not require changing the coordinates of the indexes. 
 
-see [Eugene W. Myers, AnO(ND) difference algorithm and its variations, 1986](https://link.springer.com/article/10.1007/BF01840446)
+see [Eugene W. Myers, AnO(ND) difference algorithm and its variations, 1986](https://link.springer.com/article/10.1007/BF01840446) for the more efficient variant of the diff algorithm.
 
 
 ## Bloom filter
@@ -28,10 +28,10 @@ A Bloom Filter is an space efficient probabilitstic set that scales well up to b
 The false positive rate is determined by the size $n$ of the filter, the number of elements $m$ already added, and the number of hash functions $k$ according to:
 
 $$
-( 1 - exp^(-k n / m))^k
+( 1 - exp^{-k n / m} )^k
 $$
 
-see [wikipedia article](https://en.wikipedia.org/wiki/Bloom_filter)
+see [wikipedia article](https://en.wikipedia.org/wiki/Bloom_filter).
 
 ## Consistent Hashing
 
@@ -41,20 +41,18 @@ Consistent hashing is a fundamental building block of modern distributed system 
 
 The basic techinque has a cost of inserting and searching the host for a given blob of O(log N). Where N is the number of servers. The cost of inserting or deleting a server if O(log N) + O(M/N). Where M is the total number of Blobs partition between N servers. This basic technique can be further extended by adding a number of aliases per server in order spread the load more evently.
 
-see [wikipedia article](https://en.wikipedia.org/wiki/Consistent_hashing) algorithms. 
+see [wikipedia article](https://en.wikipedia.org/wiki/Consistent_hashing). 
 
+## Skip list
 
-## Other Data Structures
+A skip list is a probabilistic data structure that allows expected retrieval, insert, and delete of entries in $O(log(n))$ time and $O(n)$ space with a much simpler implementation that a balanced tree. 
 
-In the future, I could implement:
-
-* Suffix Tree. Great documentation at https://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english
-
-* Different kinds of parsers
+see the original paper from [Pugh, Skip lists: A probabilistic alternative to balanced trees, 1990](ftp://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf) fpr the best explanation of the data structure and its implementation.
 
 ## Piece table
 
 ## Splay tree
 
-x
+
+
 
