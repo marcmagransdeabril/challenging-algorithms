@@ -53,7 +53,7 @@ see the original paper from [Pugh, Skip lists: A probabilistic alternative to ba
 
 A splay tree is a binary search tree with the additional property that recently accessed elements are quick to access again. Like binary search trees and skip lists it has $O(log(n))$ insertion, deletion, and search. The disdvantage of spaly trees not faced with balanced trees and skip lists is that the tree height can grow lineraly in some cases although a randomized implementation can be used to avoid this situation in most situations.
 
-
+see the original paper from [Albers & Karpinski, "Randomized Splay Trees: Theoretical and Experimental Results", 2002](https://www14.in.tum.de/personen/albers/papers/ipl02.pdf).
 
 
 
