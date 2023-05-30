@@ -5,10 +5,12 @@ import hashlib
 class Bloom:
     def __init__(self,k,n):
         self.k = k
-        self.hash_domain_in_bytes = math.ceil(math.log2(n)/8)   
-        self.hashes_per_sha256 = 256//self.hash_domain_in_bytes
-        self.n = 1 << (self.hash_domain_in_bytes*8)
+        self.hash_domain_in_bits = math.ceil(math.log2(n))   
+        assert self.hash_domain_in_bits < 256
+        self.mask = int("".join(["1"]*self.hash_domain_in_bits),2)
+        self.n = 1 << self.hash_domain_in_bits
         self.buffer = bytearray(self.n)
+        
 
     def __indexes(self,x):
         indexes = []
@@ -16,13 +18,10 @@ class Bloom:
         m = hashlib.sha256()
         d = bytearray()
         m.update(x.encode())
-        for i in range(self.k // self.hashes_per_sha256 + 1):            
-            m.update(str(i).encode()) # nounce to obtain the next set of hashes
-            d += m.digest()
-            
         for i in range(self.k):
-            start = i*self.hash_domain_in_bytes
-            indexes.append(int.from_bytes(d[start:start+self.hash_domain_in_bytes],"little"))
+            indexes.append(int.from_bytes(m.digest(),byteorder='little',signed=False) & self.mask)         
+            m.update(str(i).encode()) # nounce to obtain the next set of hashes
+
         return indexes
 
     def __contains__(self,x):
@@ -40,7 +39,7 @@ class Bloom:
 
 
 class Testing(unittest.TestCase):
-    def test_myers(self):
+    def test_bloom(self):
         b=Bloom(3,10000)
         b.add("hello")
         self.assertTrue("hello" in b)
